@@ -1,0 +1,61 @@
+<!-- bonus-wheel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎁 Bonus Wheel – TapZone</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .wheel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 80px;
+    }
+    .wheel {
+      width: 200px;
+      height: 200px;
+      border: 10px solid #ffc107;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background-color: #fff3cd;
+      animation: spin 0s ease-in-out;
+    }
+    @keyframes spin {
+      100% { transform: rotate(1440deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wheel-container">
+    <h2>🎉 Spin the Bonus Wheel!</h2>
+    <div id="wheel" class="wheel">🎁</div>
+    <br>
+    <button onclick="spinWheel()">Spin Now</button>
+    <p id="result"></p>
+    <br>
+    <button onclick="backToDashboard()">← Back</button>
+  </div>
+
+  <script>
+    const rewards = [50, 100, 150, 200, 0, 75];
+
+    function spinWheel() {
+      const reward = rewards[Math.floor(Math.random() * rewards.length)];
+      document.getElementById("wheel").style.animation = "spin 2s ease-in-out";
+      setTimeout(() => {
+        document.getElementById("result").innerText = reward > 0 ? 
+          `🎊 You won ${reward} bonus coins!` : `🙁 Better luck next time!`;
+      }, 2000);
+    }
+
+    function backToDashboard() {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>
