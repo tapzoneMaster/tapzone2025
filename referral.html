@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Referral System - TapZone</title>
+  <title>Referral System | TapZone</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
+    <h1>Your Referral Code</h1>
+    <p id="userReferralCode">Loading...</p>
+
     <h2>Your Referral Link</h2>
-    <input type="text" id="referralLink" readonly value="https://tapzone.pk/register.html?ref=USER123" />
-    <button onclick="copyLink()">Copy Link</button>
-    
-    <h3>Your Referrals</h3>
-    <ul id="referralList">
-      <li>Ali Khan - Joined on 19 July 2025</li>
-      <li>Sana Ahmed - Joined on 18 July 2025</li>
-    </ul>
+    <input type="text" id="referralLink" readonly />
+    <button onclick="copyReferralLink()">Copy Link</button>
+
+    <h3>Total Referrals</h3>
+    <p id="totalReferrals">0</p>
+
+    <h3>Referral Bonus Earned</h3>
+    <p id="bonusEarned">Rs. 0</p>
   </div>
 
-  <script>
-    function copyLink() {
-      const linkInput = document.getElementById("referralLink");
-      linkInput.select();
-      document.execCommand("copy");
-      alert("Referral link copied!");
-    }
-  </script>
+  <script src="referral.js"></script>
 </body>
 </html>
