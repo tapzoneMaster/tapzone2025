@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deposit | TapZone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Deposit Funds</h2>
+    <form id="depositForm">
+      <label for="amount">Amount (PKR):</label>
+      <input type="number" id="amount" name="amount" required min="500" max="50000" />
+
+      <label for="method">Select Method:</label>
+      <select id="method" name="method">
+        <option value="jazzcash">JazzCash</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+
+      <label for="account">Sender Mobile Number:</label>
+      <input type="text" id="account" name="account" placeholder="03XXXXXXXXX" required/>
+
+      <button type="submit">Submit Deposit</button>
+    </form>
+
+    <p id="statusMessage"></p>
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const form = document.getElementById("depositForm");
+    const statusMessage = document.getElementById("statusMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const amount = document.getElementById("amount").value;
+      const method = document.getElementById("method").value;
+      const account = document.getElementById("account").value;
+
+      if (amount < 500 || amount > 50000) {
+        statusMessage.innerText = "Deposit must be between Rs. 500 and Rs. 50,000.";
+        return;
+      }
+
+      // Simulate deposit confirmation
+      statusMessage.innerText = "Deposit request submitted. Processing...";
+      setTimeout(() => {
+        statusMessage.innerText = "Deposit Successful! Funds will reflect shortly.";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
