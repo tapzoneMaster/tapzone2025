@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel | TapZone</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="admin-control.js" defer></script>
+</head>
+<body>
+  <h1>🧠 Admin Control Panel</h1>
+
+  <section>
+    <h2>📊 Site Stats</h2>
+    <p>Total Users: <span id="totalUsers">Loading...</span></p>
+    <p>Total Deposits: Rs. <span id="totalDeposits">Loading...</span></p>
+    <p>Total Withdrawals: Rs. <span id="totalWithdrawals">Loading...</span></p>
+  </section>
+
+  <section>
+    <h2>⚙️ Settings</h2>
+    <label>Referral Bonus %: <input type="number" id="referralBonus" value="10" /></label>
+    <button onclick="updateSettings()">💾 Save Settings</button>
+  </section>
+
+  <section>
+    <h2>📬 Broadcast Notification</h2>
+    <input type="text" id="message" placeholder="Write your message..." />
+    <button onclick="sendNotification()">🚀 Send to All Users</button>
+  </section>
+
+</body>
+</html>
