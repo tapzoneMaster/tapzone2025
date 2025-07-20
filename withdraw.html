@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Withdraw | TapZone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Withdraw Funds</h2>
+    <form id="withdrawForm">
+      <label for="withdrawAmount">Amount (PKR):</label>
+      <input type="number" id="withdrawAmount" name="withdrawAmount" required min="1500" max="50000" />
+
+      <label for="withdrawMethod">Withdrawal Method:</label>
+      <select id="withdrawMethod" name="withdrawMethod">
+        <option value="jazzcash">JazzCash</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+
+      <label for="withdrawAccount">Receiver Account Number:</label>
+      <input type="text" id="withdrawAccount" name="withdrawAccount" placeholder="03XXXXXXXXX" required/>
+
+      <button type="submit">Submit Withdrawal</button>
+    </form>
+
+    <p id="withdrawStatus"></p>
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const form = document.getElementById("withdrawForm");
+    const status = document.getElementById("withdrawStatus");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const amount = parseInt(document.getElementById("withdrawAmount").value);
+
+      if (amount < 1500 || amount > 50000) {
+        status.innerText = "Withdrawals must be between Rs. 1,500 and Rs. 50,000.";
+        return;
+      }
+
+      const adminFee = Math.floor(amount * 0.28);
+      const userReceives = amount - adminFee;
+
+      status.innerText = `Withdrawal submitted. Admin Fee: Rs.${adminFee}, You will receive: Rs.${userReceives}.`;
+
+      setTimeout(() => {
+        status.innerText += "\nFunds will be transferred within 24 hours.";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
