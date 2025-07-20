@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chicken Multiplier - TapZone</title>
+  <link rel="canonical" href="https://tapzone2025.github.io/">
+  <link rel="stylesheet" href="style.css" />
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <h1 class="text-center">🐥 Chicken Multiplier</h1>
+  <div class="game-container">
+    <p>Tap the chicken to multiply your rewards!</p>
+    <button onclick="tapChicken()">🐔 Tap Chicken</button>
+    <p id="score">Score: 0</p>
+  </div>
+  <script>
+    let score = 0;
+    function tapChicken() {
+      score += 10;
+      document.getElementById('score').innerText = "Score: " + score;
+    }
+  </script>
+</body>
+</html>
